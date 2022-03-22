@@ -1,0 +1,11 @@
+{% if latest_question_list %}
+    <ul>
+        {% for question in latest_question_list %}
+             {% comment %} 'polls':detail is linked to the app's name in urls.py {% endcomment %}
+            <li><a href="{% url 'polls:detail' question.id %}">{{question.question_text}}</a></li>
+        {% endfor %}
+    </ul>
+
+{% else %}
+    <p> No polls are available.</p>
+{% endif %}
